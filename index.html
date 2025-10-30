@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Praveena Gedela — Portfolio</title>
+  <meta name="description" content="Praveena Gedela — Cloud Computing & Web Developer student portfolio."/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-900:#071026;
+      --bg-800:#091428;
+      --panel: rgba(255,255,255,0.03);
+      --glass-border: rgba(255,255,255,0.06);
+      --accent:#63e3ff;
+      --accent-2:#ffd166;
+      --text:#e7f2ff;
+      --muted:#94a3b8;
+      --card: rgba(255,255,255,0.02);
+      --maxw:1000px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:
+      radial-gradient(700px 400px at 10% 10%, rgba(99,227,255,0.03), transparent),
+      linear-gradient(180deg,var(--bg-900),var(--bg-800));color:var(--text);-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    .wrap{max-width:var(--maxw);margin:36px auto;padding:20px}
+    /* header */
+    header{display:flex;justify-content:space-between;align-items:center;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);border:1px solid var(--glass-border)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#031025;font-weight:800}
+    nav{display:flex;gap:10px;align-items:center}
+    nav a{padding:8px 10px;border-radius:8px;font-weight:600;color:var(--muted)}
+    nav a:hover{color:var(--accent);background:rgba(99,227,255,0.03)}
+    /* hero - tightened profile */
+    .hero{display:flex;gap:20px;align-items:center;margin-top:20px}
+    .hero-left{flex:1;min-width:0}
+    .eyebrow{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--accent);font-weight:700;margin-bottom:10px}
+    h1{margin:0;font-size:30px;line-height:1;letter-spacing:-0.01em}
+    .subtitle{margin:8px 0 14px;color:var(--muted);font-size:15px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer;border:1px solid transparent;text-decoration:none}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#041026;box-shadow:0 8px 26px rgba(63,193,255,0.08)}
+    .btn-ghost{background:transparent;border:1px solid var(--glass-border);color:var(--text)}
+    .chips{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+    .chip{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid var(--glass-border);font-weight:600;color:var(--muted);font-size:13px}
+    /* neat profile box (small photo) */
+    .profile-box{width:220px;min-width:220px;display:flex;flex-direction:column;align-items:center;gap:12px;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid var(--glass-border)}
+    .avatar-wrap{width:120px;height:120px;border-radius:999px;overflow:hidden;border:4px solid rgba(99,227,255,0.08);display:grid;place-items:center;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
+    .avatar-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+    .name{font-weight:800}
+    .role{font-size:13px;color:var(--muted)}
+    .socials{display:flex;gap:8px;margin-top:6px}
+    .socials a{padding:8px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid var(--glass-border);color:var(--muted);font-weight:700;font-size:13px}
+    /* sections */
+    section{margin-top:22px}
+    .section-title{color:var(--accent);font-size:15px;margin:0 0 12px 0;font-weight:700}
+    .card{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid var(--glass-border)}
+    /* skills */
+    .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+    .skill{padding:12px;border-radius:10px;background:var(--card);border:1px solid var(--glass-border)}
+    .skill h4{margin:0 0 8px 0;font-size:15px}
+    .progress{height:10px;background:rgba(255,255,255,0.02);border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,0.02)}
+    .progress > i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:999px}
+    /* projects */
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+    .project{position:relative;border-radius:10px;padding:12px;background:var(--card);border:1px solid var(--glass-border);min-height:140px;transition:transform .25s ease,box-shadow .25s ease}
+    .project:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
+    .proj-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.25));opacity:0;display:grid;place-items:center;padding:14px;transition:opacity .22s ease}
+    .project:hover .proj-overlay{opacity:1}
+    .proj-actions{display:flex;gap:8px}
+    /* contact layout tighter */
+    .contact-grid{display:grid;grid-template-columns:1fr 260px;gap:14px}
+    .contact-form input,.contact-form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid var(--glass-border);background:transparent;color:var(--text);resize:vertical}
+    .contact-card{padding:12px;border-radius:10px;background:linear-gradient(90deg, rgba(2,6,23,0.6), rgba(5,10,20,0.4));border:1px solid var(--glass-border)}
+    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
+    /* small reveal */
+    .reveal{opacity:0;transform:translateY(8px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.show{opacity:1;transform:none}
+    /* responsive */
+    @media (max-width:860px){
+      .hero{flex-direction:column;align-items:flex-start}
+      .profile-box{width:100%;min-width:0;flex-direction:row;gap:12px;padding:12px}
+      .avatar-wrap{width:84px;height:84px}
+      .name{font-size:16px}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:420px){
+      header{flex-direction:column;gap:10px;align-items:flex-start}
+      h1{font-size:22px}
+    }
+    /* focus */
+    :focus{outline:2px solid rgba(99,227,255,0.12);outline-offset:2px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="reveal">
+      <div class="brand">
+        <div class="logo">PG</div>
+        <div>
+          <div style="font-weight:800">Praveena Gedela</div>
+          <div style="font-size:13px;color:var(--muted)">Student • Cloud Computing & Web Dev</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a id="C:\Users\vassu\OneDrive\Desktop\new\Praveena_Gedela_Resume_pythondev (1).pdf" class="btn" href="C:\Users\vassu\OneDrive\Desktop\new\Praveena_Gedela_Resume_pythondev (1).pdf" title="Download Resume">📄 Resume</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-left reveal">
+          <div class="eyebrow">Hello — I'm</div>
+          <h1>Praveena <span style="color:var(--accent)">Gedela</span></h1>
+          <div class="subtitle">Student learning Cloud Computing (AWS) and building modern web experiences. I craft clean, accessible websites and automate tasks with Python.</div>
+          <div class="cta">
+            <a class="btn btn-primary" href="#contact">Get in touch</a>
+            <a class="btn btn-ghost" id="seeProjects">See projects</a>
+          </div>
+          <div class="chips">
+            <div class="chip">Open to collaboration</div>
+            <div class="chip">Visakhapatnam, India</div>
+            <div class="chip">Student</div>
+          </div>
+        </div>
+
+        <aside class="profile-box reveal" aria-label="Profile">
+          <div class="avatar-wrap" id="avatarDrop">
+            <!-- Put your avatar file named avatar.jpg in the same folder; otherwise placeholder used -->
+            <img id="avatarImg" src="C:\Users\vassu\OneDrive\Desktop\new\PHOTO_PRAVEENA.jpeg" alt="Praveena photo" onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder'">
+          </div>
+          <div style="text-align:center">
+            <div class="name">Praveena Gedela</div>
+            <div class="role">Cloud Computing & Web Dev</div>
+            <div class="socials" style="margin-top:8px">
+              <a href="https://github.com/praveena131005" target="_blank">GitHub</a>
+              <a href="https://www.linkedin.com/in/praveena-gedela/" target="_blank">LinkedIn</a>
+            </div>
+            <div style="margin-top:10px;display:flex;gap:8px;justify-content:center">
+              <button id="copyEmail" class="btn btn-ghost">Copy Email</button>
+              <a class="btn btn-ghost" href="mailto:praveenagedela1310@gmail.com">Email</a>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="reveal">
+        <div class="section-title">About</div>
+        <div class="card">
+          <p class="muted">I am a student exploring Cloud Computing and Web Development. I build projects to learn — from portfolio sites to Python automation and cloud-hosted demos. I care about clarity, accessibility, and maintainable code.</p>
+          <ul style="margin-top:10px;color:var(--muted)">
+            <li>Learning AWS (S3, EC2, IAM) and static site hosting</li>
+            <li>Working with HTML, CSS, JavaScript and Python</li>
+            <li>Using Git and GitHub for version control and collaboration</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="reveal">
+        <div class="section-title">Skills</div>
+        <div class="skills">
+          <div class="skill">
+            <h4>HTML & CSS</h4>
+            <div class="muted">Responsive layouts, Flexbox, Grid</div>
+            <div class="progress" aria-hidden><i data-width="95"></i></div>
+          </div>
+          <div class="skill">
+            <h4>JavaScript</h4>
+            <div class="muted">DOM, ES6+</div>
+            <div class="progress"><i data-width="80"></i></div>
+          </div>
+          <div class="skill">
+            <h4>Python</h4>
+            <div class="muted">Scripting & automation</div>
+            <div class="progress"><i data-width="75"></i></div>
+          </div>
+          <div class="skill">
+            <h4>Git & GitHub</h4>
+            <div class="muted">Version control</div>
+            <div class="progress"><i data-width="85"></i></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="reveal">
+        <div class="section-title">Projects</div>
+        <div class="projects">
+          <article class="project">
+            <strong>Portfolio Website</strong>
+            <div style="margin-top:6px;color:var(--muted)">Modern single-file site with tight layout, animations and accessible design.</div>
+            <div class="proj-overlay">
+              <div class="proj-actions">
+                <a class="btn btn-primary" href="#" onclick="alert('Add live link')">Live</a>
+                <a class="btn" href="https://github.com/praveena131005" target="_blank">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <strong>Smart Attendance System</strong>
+            <div style="margin-top:6px;color:var(--muted)">Face recognition attendance using Python and OpenCV.</div>
+            <div class="proj-overlay">
+              <div class="proj-actions"><a class="btn btn-primary" href="#" onclick="alert('Add repo link')">Repo</a></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="reveal">
+        <div class="section-title">Contact</div>
+        <div class="contact-grid">
+          <div class="card contact-form">
+            <form id="contactForm">
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <input id="name" name="name" placeholder="Your name" required>
+                <input id="email" name="email" placeholder="Email" type="email" required>
+              </div>
+              <textarea id="message" name="message" rows="4" placeholder="How can I help?" style="margin-top:10px" required></textarea>
+              <div style="display:flex;gap:8px;margin-top:10px">
+                <button class="btn btn-primary" type="submit">Send message</button>
+                <button id="downloadVcard" type="button" class="btn btn-ghost">Download vCard</button>
+              </div>
+              <div id="formStatus" class="muted" style="margin-top:8px"></div>
+            </form>
+          </div>
+
+          <aside class="contact-card">
+            <strong>Contact details</strong>
+            <div style="margin-top:10px;color:var(--muted)">
+              <div><strong>Email:</strong> praveenagedela1310@gmail.com</div>
+              <div style="margin-top:8px"><strong>GitHub:</strong> <a href="https://github.com/praveena131005" target="_blank">praveena131005</a></div>
+              <div style="margin-top:8px"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/praveena-gedela/" target="_blank">praveena-gedela</a></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <footer class="reveal" style="margin-top:18px">
+        © <span id="year"></span> Praveena Gedela • Built with care
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en => { if(en.isIntersecting) en.target.classList.add('show'); });
+    },{threshold:0.12});
+    reveals.forEach(r=>io.observe(r));
+
+    // Skills progress animation
+    const skillEls = document.querySelectorAll('.progress > i');
+    const skillsSection = document.getElementById('skills');
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          skillEls.forEach(el=>{
+            const w = el.getAttribute('data-width') || 70;
+            el.style.transition = 'width 1100ms cubic-bezier(.2,.9,.3,1)';
+            el.style.width = w + '%';
+          });
+          skillObserver.disconnect();
+        }
+      });
+    }, {threshold: 0.3});
+    if(skillsSection) skillObserver.observe(skillsSection);
+
+    // Copy email button
+    document.getElementById('copyEmail')?.addEventListener('click', async () => {
+      try{ await navigator.clipboard.writeText('praveenagedela1310@gmail.com'); alert('Email copied to clipboard'); }
+      catch{ alert('Copy failed — please copy manually: praveenagedela1310@gmail.com'); }
+    });
+
+    // Contact form -> mailto fallback
+    document.getElementById('contactForm')?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const n = encodeURIComponent(document.getElementById('name').value || '');
+      const em = encodeURIComponent(document.getElementById('email').value || '');
+      const m = encodeURIComponent(document.getElementById('message').value || '');
+      const subj = encodeURIComponent('Portfolio message from ' + (n || em));
+      const body = encodeURIComponent('Name: ' + n + '\\nEmail: ' + em + '\\n\\n' + decodeURIComponent(m));
+      window.location.href = `mailto:praveenagedela1310@gmail.com?subject=${subj}&body=${body}`;
+      document.getElementById('formStatus').textContent = 'Opening your email client...';
+    });
+
+    // vCard download
+    function makeVCard(){
+      return ['BEGIN:VCARD','VERSION:3.0','N:Gedela;Praveena;;;','FN:Praveena Gedela',
+              'EMAIL;TYPE=INTERNET:praveenagedela1310@gmail.com','ORG:Student','NOTE:Cloud Computing & Web Dev','END:VCARD'].join('\\r\\n');
+    }
+    document.getElementById('downloadVcard')?.addEventListener('click', ()=> {
+      const blob = new Blob([makeVCard()], {type:'text/vcard'}); const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'praveena_gedela.vcf'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    });
+
+    // Avatar drag & drop replace
+    const avatarDrop = document.getElementById('avatarDrop');
+    const avatarImg = document.getElementById('avatarImg');
+    avatarDrop?.addEventListener('dragover', e => { e.preventDefault(); avatarDrop.style.opacity = 0.8; });
+    avatarDrop?.addEventListener('dragleave', () => avatarDrop.style.opacity = 1);
+    avatarDrop?.addEventListener('drop', e => {
+      e.preventDefault(); avatarDrop.style.opacity = 1;
+      const f = e.dataTransfer.files[0]; if(!f) return;
+      const r = new FileReader(); r.onload = ev => avatarImg.src = ev.target.result; r.readAsDataURL(f);
+    });
+
+    // Small helpers
+    document.getElementById('seeProjects')?.addEventListener('click', ()=> document.getElementById('projects').scrollIntoView({behavior:'smooth'}));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Resume button: will try to download resume.pdf from same folder
+    document.getElementById('downloadResume').addEventListener('click', (e) => {
+      e.preventDefault();
+      fetch('resume.pdf', {method:'HEAD'}).then(r => {
+        if(r.ok) window.location.href = 'resume.pdf';
+        else alert('No resume.pdf found. Place resume.pdf in the same folder as the HTML to enable download.');
+      }).catch(()=> alert('No resume.pdf found. Place resume.pdf in the same folder as the HTML to enable download.'));
+    });
+  </script>
+</body>
+</html>
